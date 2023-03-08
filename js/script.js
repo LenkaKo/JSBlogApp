@@ -43,9 +43,10 @@ function titleClickHandler(event){
 function generateTitleLinks(){
 
   /* remove contents of titleList */
-  const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
   /* find all the articles and save them to variable: articles */
-  const articles = document.querySelectorAll(optTitleListSelector);
+  const articles = document.querySelectorAll(optArticleSelector);
   
   let html = '';
 
@@ -96,6 +97,8 @@ function generateTitleLinks(){
       /* get tags from data-tags attribute */
   
       /* split tags into array */
+  
+      
   
       /* START LOOP: for each tag */
   
