@@ -36,7 +36,7 @@ function titleClickHandler(event){
   const optArticleSelector = '.post',
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles',
-        optArticleAuthorSelector ='.post-author .list',
+        optArticleAuthorSelector ='.post-author',
         optArticleTagsSelector = '.post-tags .list';
 
 function generateTitleLinks(customSelector = ''){
@@ -188,12 +188,11 @@ function generateTitleLinks(customSelector = ''){
     const articleAuthor = article.getAttribute('data-author');
     //console.log(articleAuthor);
 
-    const authorTitle = article.querySelector(authorList);
     /* generate HTML of the link */
     let authorHTML = '<li><a href="#author' + articleAuthor +'"><span>' + articleAuthor + '</span></a></li>';
     //console.log(authorHTML);
     /* add generated code to html variable */
-    html = html + authorHTML;
+    authorList.innerHTML = authorHTML;
     //console.log(html);
     }
   }
