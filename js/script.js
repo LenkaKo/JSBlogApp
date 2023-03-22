@@ -129,20 +129,22 @@ function generateTitleLinks(customSelector = ''){
       tagWrapper.insertAdjacentHTML('beforeend', html);
   }
 
-const tagList = document.querySelector(optTagsListSelector);
-
 const tagsParams = calculateTagsParams(allTags);
 console.log('tagsParams: ', tagsParams);
 
-const allTagsData = {tags: []};
-  for(let tag in allTags){
-    allTagsData.tags.push({
-      tag: tag,
-      count: allTags[tag],
-      className: calculateTagClass(allTags[tag], tagsParams)
-    });
-  }
-tagList.innerHTML = tagList.innerHTML + TagHTML;
+let allTagsHTML = '';
+for (let tag in allTags){
+  allTagsHTML += tagLinkHTML;
+
+  //const tagLinkHTML =  calculateTagClass(allTags[tag], tagsParams);
+  //console.log('tagLinkHTML:', tagLinkHTML);
+
+  const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
+  console.log('tagLinkHTML:', tagLinkHTML);
+}
+//tagList.innerHTML = allTagsHTML;
+tagList.innerHTML = allTags.join(' ');
+console.log(allTags);
 }
   generateTags();
 
